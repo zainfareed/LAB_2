@@ -7,9 +7,9 @@ class Account{
 
 public:
 
-Account(double initial_balance)
+Account()
 {
-           balance = initial_balance;
+           balance = 1000;
 }
      bool debit(double amount)
        {
@@ -36,19 +36,25 @@ private:
 int main(int argc, char const *argv[]){
 
   int amount,y;
-       Account acct1(1000);
+       Account acct1;
        cout<<"Your account balance is "<<acct1.getBalance()<<endl<<endl;
        cout<<"Enter the amount you want to debit : ";
+       while(y==0)
+       {
        cin>>amount;
+       cout<<endl;
        y = acct1.debit(amount);
+
        if(y==0)
        {
-         cout<<"Your debit amount exceeds your account balance";
+             cout<<"Your debit amount exceeds your account balance"<<endl;
+             cout<<"Enter the amount again : ";
        }
        else
        {
          cout<<"Your remaining account balance is "<<acct1.getBalance()<<endl;
        }
+     }
 
 return 0;
 
